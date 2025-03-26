@@ -1,10 +1,9 @@
 const btnAddBook = document.querySelector('#btnAddBook');
-const display = document.querySelector('#display');
+const library = document.querySelector('.library');
 const myLibrary = [];
 
 btnAddBook.addEventListener('click', () => {
     addBookToLibrary();
-    listBooks();
 });
 
 function Book(title) {
@@ -14,14 +13,17 @@ function Book(title) {
 
 function addBookToLibrary() {
     let title = prompt('Title:');
-    const book = new Book(title);
+    let book = new Book(title);
     myLibrary.push(book);
+    displayNewBook(book);
 }
 
-function listBooks() {
-    let message  = '';
-    for (book of myLibrary) {
-        message += `${book.title} ${book.id}; `;
-    }
-    display.textContent = message;
+function displayNewBook(book) {
+    let container = document.createElement('div');
+    container.classList.add('book');
+    let titleBox = document.createElement('div');
+    container.dataset.id = book.id;
+    titleBox.textContent = book.title;
+    container.appendChild(titleBox);
+    library.appendChild(container);
 }
