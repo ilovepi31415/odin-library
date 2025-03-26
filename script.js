@@ -22,8 +22,15 @@ function displayNewBook(book) {
     let container = document.createElement('div');
     container.classList.add('book');
     let titleBox = document.createElement('div');
+    let btnX = document.createElement('button');
+    btnX.classList.add('btnX');
+    btnX.textContent = 'x';
+
+
     container.dataset.id = book.id;
     titleBox.textContent = book.title;
+
     container.appendChild(titleBox);
+    container.appendChild(btnX);
     library.appendChild(container);
 }
