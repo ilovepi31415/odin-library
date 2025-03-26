@@ -22,9 +22,11 @@ function displayNewBook(book) {
     let container = document.createElement('div');
     container.classList.add('book');
     let titleBox = document.createElement('div');
-    let btnX = document.createElement('button');
+    let btnX = document.createElement('img');
     btnX.classList.add('btnX');
-    btnX.textContent = 'x';
+    btnX.addEventListener('click', () => {
+        deleteBook(book.id);
+    });
 
 
     container.dataset.id = book.id;
@@ -33,4 +35,9 @@ function displayNewBook(book) {
     container.appendChild(titleBox);
     container.appendChild(btnX);
     library.appendChild(container);
+}
+
+function deleteBook(id) {
+    badBook = document.querySelector('[data-id=' + CSS.escape(id) + ']');
+    library.removeChild(badBook);
 }
