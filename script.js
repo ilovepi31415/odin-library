@@ -1,6 +1,7 @@
 const btnAddBook = document.querySelector('#btnAddBook');
 const library = document.querySelector('.library');
 const myLibrary = [];
+const colors = [['#9f86c0', '#231942'], ['#dda15e', '#bc6c25'], ['#1a659e', '#004e89'], ['#b23a48', '#461220']];
 
 btnAddBook.addEventListener('click', () => {
     addBookToLibrary();
@@ -28,6 +29,9 @@ function displayNewBook(book) {
         deleteBook(book.id);
     });
 
+    palette = Math.floor(Math.random() * colors.length);
+    container.style.backgroundColor = colors[palette][0];
+    container.style.borderColor = colors[palette][1];        
 
     container.dataset.id = book.id;
     titleBox.textContent = book.title;
