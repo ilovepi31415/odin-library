@@ -1,10 +1,12 @@
 const btnAddBook = document.querySelector('#btnAddBook');
 const library = document.querySelector('.library');
+const dialog = document.querySelector('.modal');
+const form = document.querySelector('#my-form');
 const myLibrary = [];
 const colors = [['#9f86c0', '#231942'], ['#dda15e', '#bc6c25'], ['#1a659e', '#004e89'], ['#b23a48', '#461220']];
 
 btnAddBook.addEventListener('click', () => {
-    addBookToLibrary();
+    dialog.showModal();
 });
 
 function Book(title) {
@@ -12,9 +14,18 @@ function Book(title) {
     this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary() {
-    let title = prompt('Title:');
-    let book = new Book(title);
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let title = document.querySelector('#title').value;
+
+    dialog.close();
+    addBookToLibrary(title);
+});
+
+function addBookToLibrary(title) {
+    let newTitle = title;
+    let book = new Book(newTitle);
     myLibrary.push(book);
     displayNewBook(book);
 }
