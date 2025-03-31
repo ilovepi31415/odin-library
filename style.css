@@ -32,11 +32,24 @@
     width: 250px;
     height: 350px;
     border-radius: 32px;
-    font-size: 32px;
     padding: 32px;
     margin: 24px;
     text-align: left;
     font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 32px;
+}
+
+.author {
+    font-size: 18px;
+    margin-bottom: 16px;
 }
 
 .btnX {
@@ -53,4 +66,10 @@
     font-weight: 1000;
     font-size: 16px;
     content: url(icons/close.svg);
+}
+
+#my-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
