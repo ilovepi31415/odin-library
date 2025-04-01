@@ -3,6 +3,12 @@
     box-sizing: border-box;
 }
 
+h1, p {
+    text-align: center;
+    font-family: fantasy;
+    font-weight: bold;
+}
+
 #btnAddBook {
     display: grid;
     border: none;
