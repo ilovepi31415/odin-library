@@ -38,9 +38,10 @@ function addBookToLibrary(title, author, pages, read) {
 function displayNewBook(book) {
     let container = document.createElement('div');
     container.classList.add('book');
+
+    // All main content declarations
     let content = document.createElement('div');
     content.classList.add('content');
-
     let titleBox = document.createElement('div');
     titleBox.classList.add('title');
     let authorBox = document.createElement('div');
@@ -49,6 +50,7 @@ function displayNewBook(book) {
     pagesBox.classList.add('pages');
     let readBox = document.createElement('div');
     
+    // Button declarations and click functions
     let buttons = document.createElement('div');
     buttons.classList.add('buttonContainer')
     let btnRead = document.createElement('img');
@@ -57,17 +59,18 @@ function displayNewBook(book) {
         book.read = !book.read;
         readBox.textContent = book.read ? 'Read' : 'Not read'; 
     });
-
     let btnX = document.createElement('img');
     btnX.classList.add('btnX');
     btnX.addEventListener('click', () => {
         deleteBook(book.id);
     });
 
+    // Creates the variety of colors in the books
     palette = Math.floor(Math.random() * colors.length);
     container.style.backgroundColor = colors[palette][0];
     container.style.borderColor = colors[palette][1];        
 
+    // Populates the book with info
     container.dataset.id = book.id;
     titleBox.textContent = book.title;
     authorBox.textContent = `by ${book.author}`;
