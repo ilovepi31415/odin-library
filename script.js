@@ -49,6 +49,15 @@ function displayNewBook(book) {
     pagesBox.classList.add('pages');
     let readBox = document.createElement('div');
     
+    let buttons = document.createElement('div');
+    buttons.classList.add('buttonContainer')
+    let btnRead = document.createElement('img');
+    btnRead.classList.add('btnRead');
+    btnRead.addEventListener('click', () => {
+        book.read = !book.read;
+        readBox.textContent = book.read ? 'Read' : 'Not read'; 
+    });
+
     let btnX = document.createElement('img');
     btnX.classList.add('btnX');
     btnX.addEventListener('click', () => {
@@ -70,7 +79,9 @@ function displayNewBook(book) {
     content.appendChild(authorBox);
     content.appendChild(pagesBox);
     content.appendChild(readBox);
-    container.appendChild(btnX);
+    container.appendChild(buttons);
+    buttons.appendChild(btnRead);
+    buttons.appendChild(btnX);
     library.appendChild(container);
 }
 

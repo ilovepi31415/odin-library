@@ -52,19 +52,33 @@
     margin-bottom: 16px;
 }
 
-.btnX {
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnRead, .btnX {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     align-self: flex-end;
-    background-color: #DB5461;
     border: none;
     border-radius: 4px;
     width: 24px;
     height: 24px;
     font-weight: 1000;
     font-size: 16px;
+}
+
+.btnRead {
+    background-color: rgb(30, 170, 30);
+    content: url(icons/book-outline.svg);
+}
+
+.btnX {
+    background-color: #DB5461;
     content: url(icons/close.svg);
 }
 
