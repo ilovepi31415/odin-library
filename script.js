@@ -25,6 +25,11 @@ form.addEventListener('submit', (e) => {
     let pages = document.querySelector('#pages').value;
     let read = document.querySelector('#been-read').checked;
 
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('#been-read').checked = false;
+
     dialog.close();
     addBookToLibrary(title, author, pages, read);
 });
