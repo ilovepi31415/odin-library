@@ -20,7 +20,6 @@ class Book {
 
     addToLibrary() {
         myLibrary.push(this);
-        console.log(myLibrary);
     }
 
     display() {
